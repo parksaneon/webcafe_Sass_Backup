@@ -1,5 +1,5 @@
 @use './../utils' as *;
-// @use 'sass:color';
+@use 'sass:color';
 // home
 .homeMain{
   @include mobile{
@@ -20,6 +20,11 @@
   @include mobile{
     width: 100%;
   }
+}
+
+// 아이콘 공통
+.far, .fas{
+  margin-right: rem(8px);
 }
 
 // 섹션 제목 공통
@@ -86,11 +91,57 @@
 // 새소식
 .news{
   grid-area: news;
+
+  &__videoContainer{
+    margin-bottom: rem(16px);
+  }
+
+  &__iframeContainer{
+    @include responsIframe;
+  }
+  
+  &__video{
+    @include respons(width);
+  }
+
+  &__date{
+    display: block;
+    text-align: right;
+    margin-top: rem(8px);
+  }
 }
 
 // 게시판
 .board{
   grid-area: board;
+  position: relative;
+
+  &__list{
+    background: yellow;
+  }
+
+  &__item{
+    @include flexbox;
+    margin: rem(8px) 0;
+  }
+  
+  &__link{
+    background: pink;
+    flex-grow: 1;
+    margin-right: rem(10px);
+    @include textEllipis;
+  }
+
+  &__date{
+    vertical-align: middle;
+    background: lime;
+    white-space: nowrap;
+  }
+
+  &__more{
+    @include pos($t:rem(4px) , $r: 0);
+    @include paddingY(8px);
+  }
 }
 
 // 인기사이트
