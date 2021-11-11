@@ -1,4 +1,5 @@
 @use './../utils' as *;
+// @use 'sass:color';
 // home
 .homeMain{
   @include mobile{
@@ -26,16 +27,13 @@
   @include flexbox(column);
   font-size: rem(20px);
   font-weight: 500;
-  padding: rem(4px) 0 0 rem(64px);
-  background-color: pink;
-  min-height: rem(60px);
-  background-image: url(./../assets/images/sprite_main.png);
-  background-repeat: no-repeat;
+  padding-top: rem(4px);
+  margin-bottom: rem(24px);
 }
 
-.news__title{
-  background-position: 0 -230px;
-}
+// .news__title{
+//   background-position: 0 -230px;
+// }
 
 [class*="__enTitle"]{
   font-size: rem(14px);
@@ -50,6 +48,39 @@
 // 추천서적
 .book{
   grid-area: book;
+
+  &__cover{
+    width: 70%;
+    @include autoMargin;
+    text-align: center;
+
+    &Image{
+      @include respons;
+    }
+
+    &Caption{
+      margin: rem(16px) 0;
+    }
+  }
+
+  &__info{
+    text-align: center;
+
+    dt, dd:nth-of-type(1){
+      display: inline-block;
+    }
+
+    .rating{
+      font-size: rem(24px);
+      margin: rem(8px) 0 rem(16px);
+
+      @for $i from 1 through 5{
+        &Star span:nth-child(#{$i}){
+          color: darken($green, $i * 5%);
+        }
+      }
+    }
+  }
 }
 
 // 새소식
