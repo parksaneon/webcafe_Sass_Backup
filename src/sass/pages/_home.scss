@@ -1,0 +1,48 @@
+@use './../utils' as *;
+// home
+.homeMain{
+  background: yellow;
+  @include mobile{
+    @include flexbox($wrap: wrap);
+  }
+  @include desktop{
+    @include gridbox;
+    grid-template-areas: 
+    "news news news news news news news news news news news news"
+    "book book book book favorite favorite favorite twitter twitter twitter twitter twitter"
+    "book book book book . board board board board board board board";
+  }
+}
+
+// 메인 섹션 공통
+.book, .news, .board, .favorite, .twitter{
+  @include mobile{
+    width: 100%;
+  }
+}
+
+
+// 추천서적
+.book{
+  grid-area: book;
+}
+
+// 새소식
+.news{
+  grid-area: news;
+}
+
+// 게시판
+.board{
+  grid-area: board;
+}
+
+// 인기사이트
+.favorite{
+  grid-area: favorite;
+}
+
+// 트위터 
+.twitter{
+  grid-area: twitter;
+}
