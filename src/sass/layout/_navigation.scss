@@ -13,10 +13,10 @@
     width: 75vw;
     height:100vh;
     padding: rem(32px);
-    transition: all 200ms ease-in-out;
   }
   &.is-active{
     transform: none;
+    transition: all 200ms ease-in-out;
   }
 
   @include desktop{

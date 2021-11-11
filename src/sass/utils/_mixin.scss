@@ -41,14 +41,29 @@
 }
 
 // Position 관련 믹스인
-@mixin positionCenter($value: absolute, $top: 50%, $left: 50%) {
-  @if $value == absolute or $value == fixed{
-      position: $value;
-      top: $top;
-      left: $left;
-      transform: translate(-50%, -50%);
-      @content;
-  }
+@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial){
+  position: $pos;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@mixin posCenterX($pos:absolute){
+  @include pos;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin posCenterY(){
+  @include pos;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin posCenter($pos:absolute){
+  @include pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // 박스(컨테이너) 크기를 뷰포트 영역으로 확장시키는 믹스인

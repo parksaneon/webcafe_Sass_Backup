@@ -1,1 +1,15 @@
-// sprites
+@use './color' as var;
+
+$colors:(
+  'Green': var.$green,
+  'Yellow': var.$yellow,
+  'Brown': var.$brown,
+  'Orange': var.$orange,
+  'Blue': var.$blue,
+);
+
+@each $color, $color-value in $colors{
+  .theme#{$color}{
+    color: $color-value;
+  }
+}

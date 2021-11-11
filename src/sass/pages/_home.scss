@@ -1,7 +1,6 @@
 @use './../utils' as *;
 // home
 .homeMain{
-  background: yellow;
   @include mobile{
     @include flexbox($wrap: wrap);
   }
@@ -16,11 +15,37 @@
 
 // 메인 섹션 공통
 .book, .news, .board, .favorite, .twitter{
+  margin: rem(24px) 0;
   @include mobile{
     width: 100%;
   }
 }
 
+// 섹션 제목 공통
+.book__title, .news__title, .board__title, .favorite__title, .twitter__title{
+  @include flexbox(column);
+  font-size: rem(20px);
+  font-weight: 500;
+  padding: rem(4px) 0 0 rem(64px);
+  background-color: pink;
+  min-height: rem(60px);
+  background-image: url(./../assets/images/sprite_main.png);
+  background-repeat: no-repeat;
+}
+
+.news__title{
+  background-position: 0 -230px;
+}
+
+[class*="__enTitle"]{
+  font-size: rem(14px);
+  margin-top: rem(4px);
+}
+
+
+[class*="__summary"]{
+  line-height: 1.5;
+}
 
 // 추천서적
 .book{
